@@ -23,5 +23,8 @@
         </div>
       </div>
     </form>
+    <div class="books-container">
+      <bkr-book-card *ngFor="let book of books" [book]="book"></bkr-book-card>
+    </div>
   </div>
 </div>

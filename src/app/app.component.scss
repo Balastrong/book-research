@@ -27,3 +27,13 @@
     }
   }
 }
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.7em -0.7em;
+
+  > * {
+    flex-basis: 50%;
+  }
+}
