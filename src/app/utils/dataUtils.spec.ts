@@ -1,4 +1,4 @@
-import { isObject, objectKeysToCamelCase, toCamel } from './dataUtils';
+import { flatObjectToQueryString, isObject, objectKeysToCamelCase, removeEmptyFields, toCamel } from './dataUtils';
 
 describe('dataUtils toCamel', () => {
   it('should convert snake_case to camelCase', () => {
@@ -77,5 +77,20 @@ describe('dataUtils objectKeysToCamelCase', () => {
       fooBar: 1,
       foo: [{ nestedValue: true }, { oneMoreNested: 1 }],
     });
+  });
+});
+
+describe('dataUtils flatObjectToQueryString', () => {
+  it('should convert objects into querystring', () => {
+    expect(flatObjectToQueryString({ foo_bar: 1, foo: 'bar' })).toEqual('foo_bar=1&foo=bar');
+    expect(flatObjectToQueryString({ foo: true })).toEqual('foo=true');
+    expect(flatObjectToQueryString({ bar: 1 })).toEqual('bar=1');
+  });
+});
+
+describe('dataUtils removeEmptyFields', () => {
+  it('should remove null or empty fields from objects', () => {
+    expect(removeEmptyFields({ fooBar: 1, foo: '', bar: null })).toEqual(<any>{ fooBar: 1 });
+    expect(removeEmptyFields({ fooBar: 0 })).toEqual({ fooBar: 0 });
   });
 });

@@ -1,4 +1,4 @@
-export class SearchModel {
+export class BookRequestModel {
   title?: string;
   author?: string;
   isbn?: string;
