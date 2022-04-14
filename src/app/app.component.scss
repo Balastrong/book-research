@@ -1,0 +1,23 @@
+.header {
+  text-align: center;
+}
+
+.search-form {
+  padding: 20px;
+  border: 1px solid black;
+
+  .search-form-controls {
+    display: flex;
+
+    .form-field {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: end;
+
+      &:not(:last-child) {
+        margin-right: 5px;
+      }
+    }
+  }
+}
