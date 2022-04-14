@@ -1,0 +1,23 @@
+@use '../../../styles/variables' as vars;
+
+.book-card {
+  margin: 0.7em;
+  padding: 0.1em 0.7em;
+  border-radius: vars.$border-radius;
+  color: vars.$secondary-text-color;
+  background-color: vars.$secondary-background-color;
+  border-bottom-style: groove;
+
+  .book-card-content {
+    margin: 0.7em 0;
+
+    .book-card-title {
+      margin-bottom: 10px;
+    }
+
+    .book-card-description {
+      font-size: 0.8em;
+      font-style: italic;
+    }
+  }
+}

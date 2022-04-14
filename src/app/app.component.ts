@@ -1,7 +1,10 @@
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder } from '@angular/forms';
 import { IFormBuilder, IFormGroup } from '@rxweb/types';
-import { SearchModel } from './models/searchModel';
+import { BookRequestModel } from './models/books/request/searchModel';
+import { Book } from './models/books/response/book';
+import { BooksService } from './services/books.service';
+import { removeEmptyFields } from './utils/dataUtils';
 
 @Component({
   selector: 'app-root',
@@ -9,12 +12,14 @@ import { SearchModel } from './models/searchModel';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent implements OnInit {
-  form!: IFormGroup<SearchModel>;
+  form!: IFormGroup<BookRequestModel>;
   formBuilder: IFormBuilder;
+  books: Book[] = [];
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, private booksService: BooksService) {
     this.formBuilder = formBuilder;
   }
+
   ngOnInit(): void {
     this.form = this.formBuilder.group({
       title: [''],
@@ -24,6 +29,12 @@ export class AppComponent implements OnInit {
   }
 
   search(): void {
-    console.log(this.form.value);
+    if (this.form.value != null) {
+      this.booksService.getBooks(removeEmptyFields(this.form.value)).subscribe((res) => {
+        if (res != null) {
+          this.books = res.results || [];
+        }
+      });
+    }
   }
 }

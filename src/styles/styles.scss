@@ -1,0 +1,44 @@
+@use './variables' as vars;
+
+html {
+  font-family: 'Roboto', Arial, Helvetica, sans-serif;
+  color: vars.$primary-text-color;
+  background-color: vars.$primary-background-color;
+  font-size: 1.6em;
+}
+
+button {
+  transition-duration: 0.5s;
+  color: vars.$secondary-text-color;
+  background-color: vars.$control-background-color;
+
+  &:hover,
+  &.active {
+    color: vars.$primary-text-color;
+    background-color: #00000020;
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+input,
+button {
+  padding: 5px;
+  border-radius: vars.$border-radius;
+  border-top-style: hidden;
+  border-right-style: hidden;
+  border-left-style: hidden;
+  border-bottom-style: groove;
+}
+
+input:focus,
+textarea:focus,
+select:focus {
+  outline: none;
+}
+
+label {
+  margin-bottom: 0.3em;
+}

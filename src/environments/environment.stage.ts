@@ -1,7 +1,7 @@
 import { IBookEnvironment } from './bookEnvironment';
 
 export const environment: IBookEnvironment = {
-  production: true,
+  production: false,
   dev: false,
-  apiKey: 'API_KEY',
+  apiKey: 'key',
 };
