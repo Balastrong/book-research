@@ -1,4 +1,7 @@
-# See http://help.github.com/ignore-files/ for more about ignoring files.
+####### CUSTOM #######
+API_KEY
+
+####### GENERATED #######
 
 # Compiled output
 /dist

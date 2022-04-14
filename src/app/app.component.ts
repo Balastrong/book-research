@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder } from '@angular/forms';
 import { IFormBuilder, IFormGroup } from '@rxweb/types';
-import { SearchModel } from './models/searchModel';
+import { SearchModel } from './models/books/request/searchModel';
+import { BooksService } from './services/books.service';
 
 @Component({
   selector: 'app-root',
@@ -12,7 +13,7 @@ export class AppComponent implements OnInit {
   form!: IFormGroup<SearchModel>;
   formBuilder: IFormBuilder;
 
-  constructor(formBuilder: FormBuilder) {
+  constructor(formBuilder: FormBuilder, private booksService: BooksService) {
     this.formBuilder = formBuilder;
   }
 
@@ -25,6 +26,7 @@ export class AppComponent implements OnInit {
   }
 
   search(): void {
+    this.booksService.getBooks().subscribe((res) => console.log(res));
     console.log(this.form.value);
   }
 }
