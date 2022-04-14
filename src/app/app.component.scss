@@ -1,11 +1,17 @@
+@use '../styles/variables' as vars;
+
+.main-container {
+  display: flex;
+  flex-direction: column;
+  max-width: 900px;
+  margin: auto;
+}
+
 .header {
   text-align: center;
 }
 
 .search-form {
-  padding: 20px;
-  border: 1px solid black;
-
   .search-form-controls {
     display: flex;
 
@@ -13,10 +19,10 @@
       display: flex;
       flex: 1;
       flex-direction: column;
-      justify-content: end;
+      justify-content: flex-end;
 
       &:not(:last-child) {
-        margin-right: 5px;
+        margin-right: 1em;
       }
     }
   }
