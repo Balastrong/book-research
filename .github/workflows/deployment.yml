@@ -1,4 +1,4 @@
-name: Deployment
+name: Deplsoyment
 
 on:
   push:
@@ -25,9 +25,10 @@ jobs:
       env:
           API_KEY: ${{ secrets.API_KEY }}
     - name: Deploy
-      uses: JamesIves/github-pages-deploy-action@releases/v2
-      env:
-        ACCESS_TOKEN: ${{ secrets.DEPLOY_TOKEN }}
-        BASE_BRANCH: master
-        BRANCH: deploy
-        FOLDER: dist
+      uses: AhsanAyaz/angular-deploy-gh-pages-actions@v1.3.2
+      with:
+        github_access_token: ${{ secrets.DEPLOY_TOKEN }}
+        build_configuration: production
+        base_href: https://Balastrong.github.io/book-research/
+        deploy_branch: deploy
+        angular_dist_build_folder: dist/book-research
