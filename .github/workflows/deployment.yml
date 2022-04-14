@@ -21,7 +21,7 @@ jobs:
          npm install -g @angular/cli
          npm install
          node ./.github/workflows/replace-env.js
-         ng build --prod --base-href="/book-research/"
+         ng build
       env:
           API_KEY: ${{ secrets.API_KEY }}
     - name: Deploy
