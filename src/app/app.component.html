@@ -2,4 +2,24 @@
   <h1>Book Research</h1>
 </div>
 
-<div class="content"></div>
+<div class="content">
+  <form [formGroup]="form" class="search-form">
+    <div class="search-form-controls">
+      <div class="form-field">
+        <label for="title">Title:</label>
+        <input formControlName="title" placeholder="Title" />
+      </div>
+      <div class="form-field">
+        <label for="title">Author:</label>
+        <input formControlName="author" placeholder="Author" />
+      </div>
+      <div class="form-field">
+        <label for="title">isbn:</label>
+        <input formControlName="isbn" placeholder="isbn" />
+      </div>
+      <div class="form-field">
+        <button (click)="search()">Search</button>
+      </div>
+    </div>
+  </form>
+</div>
