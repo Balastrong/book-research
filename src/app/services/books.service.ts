@@ -18,11 +18,12 @@ export class BooksService {
   }
 
   private getApiKey() {
-    if (environment.production) {
-    } else {
+    if (environment.dev) {
       this.http.get('assets/API_KEY', { responseType: 'text' }).subscribe((key) => {
         this.apiKey = key.toString();
       });
+    } else {
+      this.apiKey = environment.apiKey;
     }
   }
 
