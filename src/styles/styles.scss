@@ -4,7 +4,7 @@ html {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   color: vars.$primary-text-color;
   background-color: vars.$primary-background-color;
-  font-size: 1.6em;
+  font-size: 1.3em;
 }
 
 button {
@@ -25,7 +25,7 @@ button {
 
 input,
 button {
-  padding: 5px;
+  padding: 1em;
   border-radius: vars.$border-radius;
   border-top-style: hidden;
   border-right-style: hidden;
@@ -41,4 +41,34 @@ select:focus {
 
 label {
   margin-bottom: 0.3em;
+}
+
+.tooltip-container {
+  text-align: center;
+  z-index: 100;
+  position: fixed;
+  padding: 6px 12px;
+  font-size: 0.66rem;
+  font-weight: 600;
+  line-height: initial;
+  color: white;
+  width: auto;
+  background: #111111ee;
+  box-sizing: border-box;
+  opacity: 0;
+  transform: translate(-50%, -30%);
+  animation: tooltip-slide 0.18s ease-out 0.5s;
+  animation-fill-mode: forwards;
+  pointer-events: none;
+}
+
+@keyframes tooltip-slide {
+  0% {
+    opacity: 0;
+    transform: translate(-50%, -30%);
+  }
+  100% {
+    opacity: 1;
+    transform: translate(-50%, 0);
+  }
 }

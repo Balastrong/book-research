@@ -7,17 +7,46 @@
   color: vars.$secondary-text-color;
   background-color: vars.$secondary-background-color;
   border-bottom-style: groove;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   .book-card-content {
+    text-align: center;
     margin: 0.7em 0;
+    font-size: 0.8em;
 
     .book-card-title {
-      margin-bottom: 10px;
+      font-size: 1.4em;
+      margin-bottom: 0.5em;
+    }
+
+    .book-card-author {
+      margin-bottom: 0.5em;
     }
 
     .book-card-description {
-      font-size: 0.8em;
       font-style: italic;
     }
+  }
+
+  .book-card-footer {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0.7em 0;
+  }
+
+  .book-card-reviews-button {
+    width: 80%;
+    max-width: 15em;
+  }
+
+  .book-card-top-ranks {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 0.85em;
+    margin: 0.7em 0;
   }
 }

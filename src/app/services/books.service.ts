@@ -39,6 +39,12 @@ export class BooksService {
           authenticatedRequest,
         )}`,
       )
-      .pipe(map(objectKeysToCamelCase));
+      .pipe(
+        map(objectKeysToCamelCase),
+        map((res: BookApiResponse<Book>) => ({
+          ...res,
+          results: res.results.map((book) => new Book(book)),
+        })),
+      );
   }
 }

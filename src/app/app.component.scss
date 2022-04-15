@@ -3,7 +3,7 @@
 .main-container {
   display: flex;
   flex-direction: column;
-  max-width: 900px;
+  max-width: 1000px;
   margin: auto;
 }
 
@@ -34,6 +34,6 @@
   margin: 0.7em -0.7em;
 
   > * {
-    flex-basis: 50%;
+    flex-basis: 33%;
   }
 }
