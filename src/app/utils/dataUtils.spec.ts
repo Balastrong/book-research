@@ -86,6 +86,10 @@ describe('dataUtils flatObjectToQueryString', () => {
     expect(flatObjectToQueryString({ foo: true })).toEqual('foo=true');
     expect(flatObjectToQueryString({ bar: 1 })).toEqual('bar=1');
   });
+
+  it('should encode special chars', () => {
+    expect(flatObjectToQueryString({ foo: '#ba#r' })).toEqual('foo=%23ba%23r');
+  });
 });
 
 describe('dataUtils removeEmptyFields', () => {
