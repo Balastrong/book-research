@@ -4,7 +4,7 @@ html {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   color: vars.$primary-text-color;
   background-color: vars.$primary-background-color;
-  font-size: 1.6em;
+  font-size: 1.3em;
 }
 
 button {
@@ -26,7 +26,6 @@ button {
 input,
 button {
   padding: 1em;
-  font-size: 0.6em;
   border-radius: vars.$border-radius;
   border-top-style: hidden;
   border-right-style: hidden;

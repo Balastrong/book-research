@@ -37,4 +37,11 @@
     width: 75%;
     max-width: 15em;
   }
+
+  .book-card-top-ranks {
+    display: flex;
+    justify-content: space-evenly;
+    font-size: 0.85em;
+    margin: 0.7em 0;
+  }
 }

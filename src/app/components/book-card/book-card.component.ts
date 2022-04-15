@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { Book } from 'src/app/models/books/response/book';
 
 @Component({
@@ -6,13 +6,20 @@ import { Book } from 'src/app/models/books/response/book';
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss'],
 })
-export class BookCardComponent {
+export class BookCardComponent implements OnChanges {
   @Input()
   book?: Book;
+  ranks?: any[];
 
   constructor() {}
 
+  ngOnChanges(changes: SimpleChanges): void {
+    if (changes['book']?.currentValue) {
+      this.ranks = this.book?.getTopRanks() ?? [];
+    }
+  }
+
   loadReviews() {
-    console.log(this.book);
+    //TODO
   }
 }
