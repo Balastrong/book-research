@@ -1,5 +1,5 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { Book } from 'src/app/models/books/response/book';
+import { Book, Rank } from 'src/app/models/books/response/book';
 
 @Component({
   selector: 'bkr-book-card',
@@ -9,7 +9,7 @@ import { Book } from 'src/app/models/books/response/book';
 export class BookCardComponent implements OnChanges {
   @Input()
   book?: Book;
-  ranks?: any[];
+  ranks?: Rank[];
 
   constructor() {}
 
