@@ -1,6 +1,8 @@
 <div class="book-card">
   <div class="book-card-content">
     <div class="book-card-title">{{ book?.title }}</div>
+    <div class="book-card-author">{{ book?.author }}</div>
     <div class="book-card-description">{{ book?.description }}</div>
   </div>
+  <div class="book-card-footer"><button class="book-card-reviews-button" (click)="loadReviews()">Reviews</button></div>
 </div>
