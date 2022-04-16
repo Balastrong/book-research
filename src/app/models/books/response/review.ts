@@ -1,5 +1,5 @@
 export class Review {
   url!: string;
-  publicationDt!: Date;
+  publicationDt!: string;
   byline!: string;
 }

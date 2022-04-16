@@ -15,7 +15,8 @@
     </button>
   </div>
 
-  <bkr-dialog [(visible)]="isReviewDialogVisible">
-
+  <bkr-dialog [(visible)]="isReviewDialogVisible" class="review-dialog">
+    <div class="dialog-headline">{{ book?.title }}</div>
+    <bkr-reviews-card [reviews]="reviews"></bkr-reviews-card>
   </bkr-dialog>
 </div>

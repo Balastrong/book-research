@@ -1,6 +1,7 @@
 <div *ngIf="visible" [@fade] class="bkr-dialog">
   <div class="dialog-overlay" (click)="ousideClick($event)">
     <div class="dialog-panel">
+      <div class="dialog-close-button" (click)="close()">X</div>
       <ng-content></ng-content>
     </div>
   </div>

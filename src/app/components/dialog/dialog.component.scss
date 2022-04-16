@@ -17,9 +17,31 @@
     background-color: vars.$secondary-background-color;
     color: vars.$secondary-text-color;
     margin: auto;
-    padding: 20px;
+    padding: 0.7em;
     border: 2px solid vars.$secondary-text-color;
+    border-radius: vars.$border-radius;
     width: auto;
     max-width: 80%;
+    position: relative;
+
+    .dialog-close-button {
+      position: absolute;
+      right: -0.75em;
+      top: -0.75em;
+      background-color: vars.$secondary-background-color;
+      color: vars.$secondary-text-color;
+      border: 2px solid vars.$secondary-text-color;
+      border-radius: 50%;
+      width: 1.3em;
+      height: 1.3em;
+      text-align: center;
+      cursor: pointer;
+      font-weight: bold;
+      transition: 0.5s background-color;
+
+      &:hover {
+        background-color: #ff7b7b;
+      }
+    }
   }
 }

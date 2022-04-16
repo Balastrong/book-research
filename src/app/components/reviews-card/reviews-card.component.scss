@@ -1,0 +1,32 @@
+.bkr-reviews-card {
+  .reviews-card-headline {
+    font-weight: bold;
+    margin-bottom: 10px;
+  }
+
+  .reviews-card-content {
+    display: flex;
+    justify-content: space-between;
+
+    &.reviews-card-header {
+      font-weight: bold;
+    }
+
+    > div {
+      white-space: nowrap;
+
+      &:not(:last-child) {
+        margin-right: 2em;
+      }
+
+      &:nth-child(1),
+      &:nth-child(2) {
+        width: 40%;
+      }
+
+      &:nth-child(3) {
+        width: 20%;
+      }
+    }
+  }
+}

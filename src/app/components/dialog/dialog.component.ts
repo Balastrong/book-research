@@ -1,5 +1,5 @@
 import { animate, style, transition, trigger } from '@angular/animations';
-import { Component, EventEmitter, HostListener, Input, Output } from '@angular/core';
+import { Component, EventEmitter, HostListener, Input, OnChanges, Output, SimpleChanges } from '@angular/core';
 
 @Component({
   selector: 'bkr-dialog',
@@ -38,7 +38,7 @@ export class DialogComponent {
   }
 
   /**
-   * Chiude il dialog
+   * Emette false all'esterno per permettere di chiudere il dialog
    */
   close(): void {
     this.visibleChange.emit(false);
