@@ -3,6 +3,7 @@ export class Book {
   description!: string;
   title!: string;
   ranksHistory!: Rank[];
+  reviews!: ReviewLinks[];
 
   constructor(book: Book) {
     Object.assign(this, book);
@@ -33,4 +34,11 @@ export class Rank {
   listName!: string;
   rank!: number;
   weeksOnList!: number;
+}
+
+export class ReviewLinks {
+  articleChapterLink!: string;
+  bookReviewLink!: string;
+  firstChapterLink!: string;
+  sundayReviewLink!: string;
 }

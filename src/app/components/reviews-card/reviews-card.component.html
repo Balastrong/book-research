@@ -1,0 +1,26 @@
+<div class="bkr-reviews-card">
+  <ng-container *ngIf="reviews?.length || 0 > 0; else noReviewsBlock">
+    <div class="reviews-card-headline">Reviews</div>
+    <table class="reviews-card-table">
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Date</th>
+          <th>Article</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of reviews" class="">
+          <td>{{ review.byline }}</td>
+          <td>{{ review.publicationDt }}</td>
+          <td>
+            <i> <a [href]="review.url" target="_blank">Read...</a> </i>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </ng-container>
+  <ng-template #noReviewsBlock>
+    <p>There are no reviews for this book!</p>
+  </ng-template>
+</div>

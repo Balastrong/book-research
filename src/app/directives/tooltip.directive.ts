@@ -20,7 +20,8 @@ export class TooltipDirective implements OnDestroy {
     }
   }
 
-  @HostListener('mouseenter') onMouseEnter() {
+  @HostListener('mouseenter')
+  onMouseEnter() {
     this.timer = setTimeout(() => {
       let x = this.el.nativeElement.getBoundingClientRect().left + this.el.nativeElement.offsetWidth / 2;
       let y = this.el.nativeElement.getBoundingClientRect().top + this.el.nativeElement.offsetHeight + 6;
@@ -28,7 +29,8 @@ export class TooltipDirective implements OnDestroy {
     }, this.delay);
   }
 
-  @HostListener('mouseleave') onMouseLeave() {
+  @HostListener('mouseleave')
+  onMouseLeave() {
     if (this.timer) clearTimeout(this.timer);
     if (this.myPopup) {
       this.myPopup.remove();

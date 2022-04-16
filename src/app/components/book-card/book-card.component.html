@@ -1,4 +1,4 @@
-<div class="book-card">
+<div class="bkr-book-card">
   <div class="book-card-content">
     <div class="book-card-title">{{ book?.title }}</div>
     <div class="book-card-author">{{ book?.author }}</div>
@@ -10,6 +10,13 @@
         <div bkrTooltip tooltip="{{ entry.listName }}<br/>{{ entry.publishedDate }}">#{{ entry.rank }} 🏆</div>
       </div>
     </div>
-    <button class="book-card-reviews-button" (click)="loadReviews()">Reviews</button>
+    <button class="book-card-reviews-button" (click)="loadReviews()">
+      Load reviews<span *ngIf="reviews"> ({{ reviews.length }})</span>
+    </button>
   </div>
+
+  <bkr-dialog [(visible)]="isReviewDialogVisible" class="review-dialog">
+    <div class="dialog-headline">{{ book?.title }}</div>
+    <bkr-reviews-card [reviews]="reviews"></bkr-reviews-card>
+  </bkr-dialog>
 </div>

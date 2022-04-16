@@ -39,7 +39,7 @@ export function isObject(obj: any): boolean {
 export function flatObjectToQueryString<T>(obj: T): string {
   return isObject(obj)
     ? Object.keys(obj)
-        .map((key) => `${key}=${obj[key as keyof T]}`)
+        .map((key) => `${key}=${encodeURIComponent('' + obj[key as keyof T])}`)
         .join('&')
     : '';
 }

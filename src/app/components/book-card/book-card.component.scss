@@ -1,6 +1,6 @@
 @use '../../../styles/variables' as vars;
 
-.book-card {
+.bkr-book-card {
   margin: 0.7em;
   padding: 0.1em 0.7em;
   border-radius: vars.$border-radius;
@@ -48,5 +48,11 @@
     justify-content: space-evenly;
     font-size: 0.85em;
     margin: 0.7em 0;
+  }
+
+  .dialog-headline {
+    font-weight: bold;
+    text-align: center;
+    margin-bottom: 0.7em;
   }
 }
