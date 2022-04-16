@@ -6,7 +6,6 @@ import { HttpClientModule } from '@angular/common/http';
 describe('AppComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [ReactiveFormsModule, HttpClientModule],
       declarations: [AppComponent],
     }).compileComponents();
   });

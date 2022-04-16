@@ -12,6 +12,7 @@ import { BooksService } from './services/books.service';
 import { TabsComponent } from './generic-components/tabs/tabs.component';
 import { TabComponent } from './generic-components/tabs/tab.component';
 import { BookSearchComponent } from './domain-components/book-search/book-search.component';
+import { BookFavouriteComponent } from './domain-components/book-favourite/book-favourite.component';
 
 @NgModule({
   declarations: [
@@ -23,6 +24,7 @@ import { BookSearchComponent } from './domain-components/book-search/book-search
     TabsComponent,
     TabComponent,
     BookSearchComponent,
+    BookFavouriteComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [BooksService],

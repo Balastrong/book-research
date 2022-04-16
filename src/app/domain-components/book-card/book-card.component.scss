@@ -35,11 +35,20 @@
     flex-direction: column;
     align-items: center;
     margin: 0.7em 0;
-  }
 
-  .book-card-reviews-button {
-    width: 80%;
-    max-width: 15em;
+    .book-card-buttons {
+      display: flex;
+      width: 100%;
+      gap: 1em;
+
+      .book-card-reviews-button {
+        flex: 3;
+      }
+
+      .book-card-favourite-button {
+        flex: 1;
+      }
+    }
   }
 
   .book-card-top-ranks {
