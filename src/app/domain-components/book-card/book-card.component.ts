@@ -1,7 +1,9 @@
 import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { filter } from 'rxjs';
 import { Book, Rank } from 'src/app/models/books/response/book';
 import { Review } from 'src/app/models/books/response/review';
 import { BooksService } from 'src/app/services/books.service';
+import { FavouritesService } from 'src/app/services/favourites.service';
 
 @Component({
   selector: 'bkr-book-card',
@@ -14,8 +16,14 @@ export class BookCardComponent implements OnChanges {
   ranks?: Rank[];
   reviews?: Review[];
   isReviewDialogVisible: boolean = false;
+  isFavourite: boolean = false;
 
-  constructor(private booksService: BooksService) {}
+  constructor(private booksService: BooksService, private favouritesService: FavouritesService) {
+    this.favouritesService
+      .updates()
+      .pipe(filter(() => !!this.book))
+      .subscribe((books) => (this.isFavourite = books.some((b) => b.equals(this.book!))));
+  }
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['book']?.currentValue) {
@@ -38,5 +46,11 @@ export class BookCardComponent implements OnChanges {
 
   toggleReviewDialog(isVisible: boolean) {
     this.isReviewDialogVisible = isVisible;
+  }
+
+  addFavourite() {
+    if (this.book) {
+      this.favouritesService.toggleFavourite(this.book);
+    }
   }
 }

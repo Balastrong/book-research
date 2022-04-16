@@ -1,4 +1,4 @@
-<div *ngIf="books.length == 0; else booksContainer" class="empty-favourites-list">
+<div *ngIf="!(favouriteService.updates() | async)?.length; else booksContainer" class="empty-favourites-list">
   <p>
     It seems you have no books in the list.<br />
     Search for some books in the Research tab and press the <button>⭐</button> button!
@@ -8,6 +8,6 @@
   <span>Your favourite books!</span>
 
   <div class="books-container">
-    <bkr-book-card *ngFor="let book of books" [book]="book"></bkr-book-card>
+    <bkr-book-card *ngFor="let book of favouriteService.updates() | async" [book]="book"></bkr-book-card>
   </div>
 </ng-template>

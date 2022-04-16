@@ -27,6 +27,13 @@ export class Book {
 
     return topRanksArray;
   }
+
+  /**
+   * Considera due libri uguali se hanno stesso titolo ed autore e restituisce un booleano
+   */
+  public equals(other: Book): boolean {
+    return this.title === other.title && this.author === other.author;
+  }
 }
 
 export class Rank {
