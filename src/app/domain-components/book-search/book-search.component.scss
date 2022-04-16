@@ -1,0 +1,13 @@
+.search-form {
+  .search-form-controls {
+    display: flex;
+    gap: 1em;
+
+    .form-field {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: flex-end;
+    }
+  }
+}

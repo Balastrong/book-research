@@ -10,9 +10,20 @@
         <div bkrTooltip tooltip="{{ entry.listName }}<br/>{{ entry.publishedDate }}">#{{ entry.rank }} 🏆</div>
       </div>
     </div>
-    <button class="book-card-reviews-button" (click)="loadReviews()">
-      Load reviews<span *ngIf="reviews"> ({{ reviews.length }})</span>
-    </button>
+    <div class="book-card-buttons">
+      <button class="book-card-reviews-button" (click)="loadReviews()">
+        Load reviews<span *ngIf="reviews"> ({{ reviews.length }})</span>
+      </button>
+      <button
+        class="book-card-favourite-button"
+        [ngClass]="{ active: isFavourite }"
+        (click)="addFavourite()"
+        bkrTooltip
+        [tooltip]="(isFavourite ? 'Remove from' : 'Add to') + ' favourites'"
+      >
+        ⭐
+      </button>
+    </div>
   </div>
 
   <bkr-dialog [(visible)]="isReviewDialogVisible" class="review-dialog">

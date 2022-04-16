@@ -8,7 +8,7 @@ html {
 }
 
 button {
-  transition-duration: 0.5s;
+  transition: all 0.5s ease,  transform 0s;
   color: vars.$secondary-text-color;
   background-color: vars.$control-background-color;
 
@@ -21,6 +21,11 @@ button {
   &:hover {
     cursor: pointer;
   }
+
+  &:active {
+    transform: translateY(2px);
+  }
+
   &:disabled,
   &[disabled] {
     background-color: #cccccc;
@@ -75,5 +80,15 @@ label {
   100% {
     opacity: 1;
     transform: translate(-50%, 0);
+  }
+}
+
+.books-container {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0.7em -0.7em;
+
+  > * {
+    flex-basis: 33%;
   }
 }

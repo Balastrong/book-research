@@ -11,30 +11,6 @@ import { removeEmptyFields } from './utils/dataUtils';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss'],
 })
-export class AppComponent implements OnInit {
-  form!: IFormGroup<BookRequestModel>;
-  formBuilder: IFormBuilder;
-  books: Book[] = [];
+export class AppComponent {
 
-  constructor(formBuilder: FormBuilder, private booksService: BooksService) {
-    this.formBuilder = formBuilder;
-  }
-
-  ngOnInit(): void {
-    this.form = this.formBuilder.group({
-      title: [''],
-      author: [''],
-      isbn: [''],
-    });
-  }
-
-  search(): void {
-    if (this.form.value != null) {
-      this.booksService.getBooks(removeEmptyFields(this.form.value)).subscribe((response) => {
-        if (response != null) {
-          this.books = response.results || [];
-        }
-      });
-    }
-  }
 }
