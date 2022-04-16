@@ -1,22 +1,24 @@
 <div class="bkr-reviews-card">
   <ng-container *ngIf="reviews?.length || 0 > 0; else noReviewsBlock">
     <div class="reviews-card-headline">Reviews</div>
-    <div class="reviews-card-content reviews-card-header">
-      <div>Author</div>
-      <div>Date</div>
-      <div>Article</div>
-    </div>
-    <div>
-      <div *ngFor="let review of reviews" class="">
-        <div class="reviews-card-content">
-          <div>{{ review.byline }}</div>
-          <div>{{ review.publicationDt }}</div>
-          <div>
+    <table class="reviews-card-table">
+      <thead>
+        <tr>
+          <th>Author</th>
+          <th>Date</th>
+          <th>Article</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let review of reviews" class="">
+          <td>{{ review.byline }}</td>
+          <td>{{ review.publicationDt }}</td>
+          <td>
             <i> <a [href]="review.url" target="_blank">Read...</a> </i>
-          </div>
-        </div>
-      </div>
-    </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
   </ng-container>
   <ng-template #noReviewsBlock>
     <p>There are no reviews for this book!</p>
