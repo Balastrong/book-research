@@ -1,5 +1,5 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
-import { filter } from 'rxjs';
+import { Component, Input, OnChanges, OnDestroy, OnInit, SimpleChanges } from '@angular/core';
+import { filter, Observable, Subject, Subscription, takeUntil } from 'rxjs';
 import { Book, Rank } from 'src/app/models/books/response/book';
 import { Review } from 'src/app/models/books/response/review';
 import { BooksService } from 'src/app/services/books.service';
@@ -10,7 +10,7 @@ import { FavouritesService } from 'src/app/services/favourites.service';
   templateUrl: './book-card.component.html',
   styleUrls: ['./book-card.component.scss'],
 })
-export class BookCardComponent implements OnChanges {
+export class BookCardComponent implements OnChanges, OnDestroy {
   @Input()
   book?: Book;
   ranks?: Rank[];
@@ -18,17 +18,26 @@ export class BookCardComponent implements OnChanges {
   isReviewDialogVisible: boolean = false;
   isFavourite: boolean = false;
 
-  constructor(private booksService: BooksService, private favouritesService: FavouritesService) {
-    this.favouritesService
-      .updates()
-      .pipe(filter(() => !!this.book))
-      .subscribe((books) => (this.isFavourite = books.some((b) => b.equals(this.book!))));
-  }
+  unsubscribe$: Subject<void> = new Subject();
+
+  constructor(private booksService: BooksService, private favouritesService: FavouritesService) {}
 
   ngOnChanges(changes: SimpleChanges): void {
     if (changes['book']?.currentValue) {
       this.ranks = this.book?.getTopRanks() ?? [];
+
+      this.favouritesService
+        .updates()
+        .pipe(takeUntil(this.unsubscribe$))
+        .subscribe((books) => {
+          this.isFavourite = books.some((b) => b.equals(this.book));
+        });
     }
+  }
+
+  ngOnDestroy(): void {
+    this.unsubscribe$.next();
+    this.unsubscribe$.complete();
   }
 
   loadReviews() {

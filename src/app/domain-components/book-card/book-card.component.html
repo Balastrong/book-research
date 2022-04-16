@@ -14,8 +14,15 @@
       <button class="book-card-reviews-button" (click)="loadReviews()">
         Load reviews<span *ngIf="reviews"> ({{ reviews.length }})</span>
       </button>
-      {{ isFavourite }}
-      <button class="book-card-favourite-button" (click)="addFavourite()">⭐</button>
+      <button
+        class="book-card-favourite-button"
+        [ngClass]="{ active: isFavourite }"
+        (click)="addFavourite()"
+        bkrTooltip
+        [tooltip]="(isFavourite ? 'Remove from' : 'Add to') + ' favourites'"
+      >
+        ⭐
+      </button>
     </div>
   </div>
 
