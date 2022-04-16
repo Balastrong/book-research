@@ -1,4 +1,4 @@
-<div class="book-card">
+<div class="bkr-book-card">
   <div class="book-card-content">
     <div class="book-card-title">{{ book?.title }}</div>
     <div class="book-card-author">{{ book?.author }}</div>
@@ -14,4 +14,8 @@
       Load reviews<span *ngIf="reviews"> ({{ reviews.length }})</span>
     </button>
   </div>
+
+  <bkr-dialog [(visible)]="isReviewDialogVisible">
+
+  </bkr-dialog>
 </div>

@@ -13,6 +13,7 @@ export class BookCardComponent implements OnChanges {
   book?: Book;
   ranks?: Rank[];
   reviews?: Review[];
+  isReviewDialogVisible: boolean = false;
 
   constructor(private booksService: BooksService) {}
 
@@ -27,15 +28,15 @@ export class BookCardComponent implements OnChanges {
       if (this.reviews === undefined) {
         this.booksService.getReviews({ title: this.book.title, author: this.book.author }).subscribe((response) => {
           this.reviews = response.results;
-          this.showReviews();
+          this.toggleReviewDialog(true);
         });
       } else {
-        this.showReviews();
+        this.toggleReviewDialog(true);
       }
     }
   }
 
-  showReviews() {
-    console.log(this.reviews);
+  toggleReviewDialog(isVisible: boolean) {
+    this.isReviewDialogVisible = isVisible;
   }
 }

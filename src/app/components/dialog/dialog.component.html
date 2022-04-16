@@ -1,0 +1,7 @@
+<div *ngIf="visible" [@fade] class="bkr-dialog">
+  <div class="dialog-overlay" (click)="ousideClick($event)">
+    <div class="dialog-panel">
+      <ng-content></ng-content>
+    </div>
+  </div>
+</div>
