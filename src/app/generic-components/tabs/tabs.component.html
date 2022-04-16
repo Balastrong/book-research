@@ -1,1 +1,15 @@
-<p>tabs works!</p>
+<div class="bkr-tabs">
+  <div class="tabs-labels">
+    <button
+      *ngFor="let tab of tabs; index as i"
+      (click)="setActive(i)"
+      class="tabs-label"
+      [ngClass]="{ 'active': activeIndex === i }"
+    >
+      {{ tab.label }}
+    </button>
+  </div>
+  <div class="tabs-content">
+    <ng-content></ng-content>
+  </div>
+</div>

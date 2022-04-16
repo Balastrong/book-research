@@ -4,27 +4,11 @@
   </div>
 
   <div class="content">
-    <form [formGroup]="form" class="search-form">
-      <div class="search-form-controls">
-        <div class="form-field">
-          <label for="title">Title</label>
-          <input formControlName="title" placeholder="Title" />
-        </div>
-        <div class="form-field">
-          <label for="title">Author</label>
-          <input formControlName="author" placeholder="Author" />
-        </div>
-        <div class="form-field">
-          <label for="title">ISBN</label>
-          <input formControlName="isbn" placeholder="ISBN" />
-        </div>
-        <div class="form-field">
-          <button (click)="search()">Search</button>
-        </div>
-      </div>
-    </form>
-    <div class="books-container">
-      <bkr-book-card *ngFor="let book of books" [book]="book"></bkr-book-card>
-    </div>
+    <bkr-tabs>
+      <bkr-tab label="Research">
+        <brk-book-search></brk-book-search>
+      </bkr-tab>
+      <bkr-tab label="Favourites"> Content </bkr-tab>
+    </bkr-tabs>
   </div>
 </div>

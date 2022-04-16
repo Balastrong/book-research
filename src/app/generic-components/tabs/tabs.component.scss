@@ -1,0 +1,25 @@
+.bkr-tabs {
+  display: flex;
+  flex-direction: column;
+
+  .tabs-labels {
+    display: flex;
+
+    .tabs-label {
+      flex: 1;
+      margin-left: 10px;
+
+      &:first-child {
+        margin-left: 0;
+      }
+    }
+  }
+
+  .tabs-content {
+    margin-top: 1em;
+  }
+
+  .tabs-active {
+    font-weight: bold;
+  }
+}

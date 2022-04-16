@@ -1,0 +1,16 @@
+.search-form {
+  .search-form-controls {
+    display: flex;
+
+    .form-field {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      justify-content: flex-end;
+
+      &:not(:last-child) {
+        margin-right: 1em;
+      }
+    }
+  }
+}

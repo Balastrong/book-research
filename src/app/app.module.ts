@@ -10,9 +10,20 @@ import { ReviewsCardComponent } from './domain-components/reviews-card/reviews-c
 import { DialogComponent } from './generic-components/dialog/dialog.component';
 import { BooksService } from './services/books.service';
 import { TabsComponent } from './generic-components/tabs/tabs.component';
+import { TabComponent } from './generic-components/tabs/tab.component';
+import { BookSearchComponent } from './domain-components/book-search/book-search.component';
 
 @NgModule({
-  declarations: [AppComponent, TooltipDirective, BookCardComponent, ReviewsCardComponent, DialogComponent, TabsComponent],
+  declarations: [
+    AppComponent,
+    TooltipDirective,
+    BookCardComponent,
+    ReviewsCardComponent,
+    DialogComponent,
+    TabsComponent,
+    TabComponent,
+    BookSearchComponent,
+  ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [BooksService],
   bootstrap: [AppComponent],
