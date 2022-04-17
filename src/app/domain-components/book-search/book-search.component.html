@@ -18,5 +18,6 @@
   </div>
 </form>
 <div class="books-container">
-  <bkr-book-card *ngFor="let book of books" [book]="book"></bkr-book-card>
+  <bkr-book-card *ngFor="let book of books" [book]="book" class="books-container-item"></bkr-book-card>
+  <bkr-paginator (onPageSelect)="search($event)"></bkr-paginator>
 </div>

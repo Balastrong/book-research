@@ -5,10 +5,11 @@ html {
   color: vars.$primary-text-color;
   background-color: vars.$primary-background-color;
   font-size: 1.3em;
+  overflow-x: hidden;
 }
 
 button {
-  transition: all 0.5s ease,  transform 0s;
+  transition: all 0.5s ease, transform 0s;
   color: vars.$secondary-text-color;
   background-color: vars.$control-background-color;
 
@@ -22,7 +23,7 @@ button {
     cursor: pointer;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(2px);
   }
 
@@ -87,8 +88,25 @@ label {
   display: flex;
   flex-wrap: wrap;
   margin: 0.7em -0.7em;
+  position: relative;
 
-  > * {
-    flex-basis: 33%;
+  > .books-container-item {
+    flex-basis: 33.33%;
+  }
+}
+
+::-webkit-scrollbar {
+  width: 0.7em;
+}
+
+::-webkit-scrollbar-track {
+  background: #fffc;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #888c;
+
+  &:hover {
+    background: #555c;
   }
 }
