@@ -20,12 +20,8 @@ jobs:
 
       - name: Setup
         run: |
-          npm install -g @angular/cli
-          npm install
-          node ./.github/workflows/replace-env.js
-          ng build
-          mkdir -p assets
-          echo "$API_KEY" > assets/API_KEY
+          mkdir -p src/assets
+          echo "$API_KEY" > src/assets/API_KEY
         env:
           API_KEY: ${{ secrets.API_KEY }}
 
