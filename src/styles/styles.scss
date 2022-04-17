@@ -5,6 +5,7 @@ html {
   color: vars.$primary-text-color;
   background-color: vars.$primary-background-color;
   font-size: 1.3em;
+  overflow-x: hidden;
 }
 
 button {
@@ -22,7 +23,7 @@ button {
     cursor: pointer;
   }
 
-  &:active {
+  &:active:not(:disabled) {
     transform: translateY(2px);
   }
 
@@ -87,8 +88,9 @@ label {
   display: flex;
   flex-wrap: wrap;
   margin: 0.7em -0.7em;
+  position: relative;
 
-  > * {
+  > .books-container-item {
     flex-basis: 33.33%;
   }
 }

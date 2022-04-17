@@ -13,6 +13,7 @@ import { flatObjectToQueryString, objectKeysToCamelCase } from '../utils/dataUti
   providedIn: 'root',
 })
 export class BooksService {
+  public static readonly PAGE_SIZE: number = 20;
   private baseUrl: string = 'https://api.nytimes.com/svc/books/v3';
   private apiKey!: string;
 

@@ -1,0 +1,5 @@
+<div class="bkr-paginator" *ngIf="currentPage != null">
+  <button (click)="emit(currentPage - 1)" [disabled]="currentPage <= 0">Prev</button>
+  {{ currentPage + 1 }}
+  <button (click)="emit(currentPage + 1)" [disabled]="currentPage >= pages - 1">Next</button>
+</div>

@@ -14,6 +14,7 @@ import { TabComponent } from './generic-components/tabs/tab.component';
 import { BookSearchComponent } from './domain-components/book-search/book-search.component';
 import { BookFavouriteComponent } from './domain-components/book-favourite/book-favourite.component';
 import { CamelCaseInterceptor } from './services/httpInterceptors/camel-case.interceptor';
+import { PaginatorComponent } from './generic-components/paginator/paginator.component';
 
 @NgModule({
   declarations: [
@@ -26,6 +27,7 @@ import { CamelCaseInterceptor } from './services/httpInterceptors/camel-case.int
     TabComponent,
     BookSearchComponent,
     BookFavouriteComponent,
+    PaginatorComponent,
   ],
   imports: [BrowserModule, ReactiveFormsModule, HttpClientModule, BrowserAnimationsModule],
   providers: [
