@@ -23,6 +23,8 @@ jobs:
          npm install -g @angular/cli
          npm install
          node ./.github/workflows/replace-env.js
+         mkdir -p assets
+         echo "${{ secrets.API_KEY }}" > assets/API_KEY
          ng build
         env:
           API_KEY: ${{ secrets.API_KEY }}
@@ -30,5 +32,5 @@ jobs:
       - name: Cypress run
         uses: cypress-io/github-action@v2
         with:
-          build: npm run build --prod
+          build: npm run build
           start: npm start
