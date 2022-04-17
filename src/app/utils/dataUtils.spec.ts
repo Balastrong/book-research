@@ -28,14 +28,6 @@ describe('dataUtils isObject', () => {
     expect(isObject(true)).toBeFalse();
     expect(isObject([1, 2])).toBeFalse();
   });
-
-  it('should keep camelCase as is', () => {
-    // lowercase
-    expect(toCamel('foobar')).toEqual('foobar');
-
-    // camelCase
-    expect(toCamel('fooBar')).toEqual('fooBar');
-  });
 });
 
 describe('dataUtils objectKeysToCamelCase', () => {

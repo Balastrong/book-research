@@ -41,7 +41,6 @@ export class BooksService {
         `${this.baseUrl}/lists/best-sellers/history.json?${flatObjectToQueryString(authenticatedRequest)}`,
       )
       .pipe(
-        map(objectKeysToCamelCase),
         map((res: BookApiResponse<Book>) => ({
           ...res,
           results: res.results.map((book) => new Book(book)),
@@ -51,8 +50,8 @@ export class BooksService {
 
   public getReviews(requestModel: ReviewRequestModel): Observable<BookApiResponse<Review>> {
     const authenticatedRequest = { ...requestModel, 'api-key': this.apiKey };
-    return this.http
-      .get<BookApiResponse<Review>>(`${this.baseUrl}/reviews.json?${flatObjectToQueryString(authenticatedRequest)}`)
-      .pipe(map(objectKeysToCamelCase));
+    return this.http.get<BookApiResponse<Review>>(
+      `${this.baseUrl}/reviews.json?${flatObjectToQueryString(authenticatedRequest)}`,
+    );
   }
 }
