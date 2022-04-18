@@ -16,4 +16,19 @@ describe('Home Page', () => {
   it('should have only one selected tab', () => {
     cy.get('.tabs-label.active').should('have.length', 1);
   });
+
+  it('should switch to the other tab tab', () => {
+    const tab1Text = 'Research';
+    const tab2Text = 'Favourites';
+
+    cy.get('.tabs-label.active').should('contain.text', tab1Text);
+
+    cy.get('.tabs-labels > :nth-child(2)').click();
+
+    cy.get('.tabs-label.active').should('contain.text', tab2Text);
+
+    cy.get('.tabs-labels > :nth-child(1)').click();
+
+    cy.get('.tabs-label.active').should('contain.text', tab1Text);
+  });
 });

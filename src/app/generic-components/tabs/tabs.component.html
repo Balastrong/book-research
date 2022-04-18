@@ -4,7 +4,7 @@
       *ngFor="let tab of tabs; index as i"
       (click)="setActive(i)"
       class="tabs-label"
-      [ngClass]="{ 'active': activeIndex === i }"
+      [ngClass]="{ active: activeIndex === i }"
     >
       {{ tab.label }}
     </button>
