@@ -2,7 +2,7 @@
 
 describe('Favourites', () => {
   before(() => {
-    cy.visit('localhost:4200', { timeout: 30000 });
+    cy.visit('localhost:4200', { timeout: 60000 });
   });
 
   it('should add a book to favourites', () => {
