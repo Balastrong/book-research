@@ -19,7 +19,7 @@ export class PaginatorComponent {
   currentPage!: number;
 
   update(elements: number, currentPage: number) {
-    this.pages = elements / this.pageSize;
+    this.pages = Math.ceil(elements / this.pageSize) || 1;
     this.currentPage = currentPage;
   }
 
