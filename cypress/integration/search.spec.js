@@ -17,14 +17,8 @@ describe('Search', () => {
     cy.get('.bkr-book-card').should('have.length.at.least', 1);
   });
 
-  it('should find some books', () => {
-    cy.get('.search-form-controls').find('button').click();
-
-    cy.get('.bkr-book-card').should('have.length.at.least', 1);
-  });
-
   it('should be at page 1', () => {
-    cy.get('.paginator-current-page').should('have.text', '1');
+    cy.get('.paginator-current-page').should('contain.text', '1 /');
   });
 
   it('should have the prev button disabled', () => {
