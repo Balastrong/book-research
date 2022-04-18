@@ -10,10 +10,14 @@
     </div>
     <div class="form-field">
       <label for="title">ISBN</label>
-      <input formControlName="isbn" placeholder="ISBN" />
+      <input
+        formControlName="isbn"
+        placeholder="ISBN"
+        [ngClass]="{ 'validation-error': form.controls['isbn']?.errors }"
+      />
     </div>
     <div class="form-field">
-      <button (click)="search()">Search</button>
+      <button (click)="search()" [disabled]="form.invalid || form.pending">Search</button>
     </div>
   </div>
 </form>
