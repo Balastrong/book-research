@@ -8,6 +8,10 @@
   <span>Your favourite books!</span>
 
   <div class="books-container">
-    <bkr-book-card *ngFor="let book of favouriteService.updates() | async" [book]="book"></bkr-book-card>
+    <bkr-book-card
+      *ngFor="let book of favouriteService.updates() | async"
+      [book]="book"
+      class="books-container-item"
+    ></bkr-book-card>
   </div>
 </ng-template>
