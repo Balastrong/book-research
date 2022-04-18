@@ -2,7 +2,7 @@
 
 describe('Search', () => {
   before(() => {
-    cy.visit('localhost:4200');
+    cy.visit('localhost:4200', { timeout: 30000 });
   });
 
   it('should have a search button', () => {
