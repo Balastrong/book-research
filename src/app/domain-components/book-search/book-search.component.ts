@@ -1,11 +1,12 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { FormBuilder } from '@angular/forms';
+import { FormBuilder, Validators } from '@angular/forms';
 import { IFormBuilder, IFormGroup } from '@rxweb/types';
 import { PaginatorComponent } from 'src/app/generic-components/paginator/paginator.component';
 import { BookRequestModel } from 'src/app/models/books/request/bookRequestModel';
 import { Book } from 'src/app/models/books/response/book';
 import { BooksService } from 'src/app/services/books.service';
 import { removeEmptyFields } from 'src/app/utils/dataUtils';
+import { ISBNLengthTimeout } from 'src/app/utils/form-validators';
 
 @Component({
   selector: 'brk-book-search',
@@ -27,7 +28,7 @@ export class BookSearchComponent implements OnInit {
     this.form = this.formBuilder.group({
       title: [''],
       author: [''],
-      isbn: [''],
+      isbn: ['', null, [ISBNLengthTimeout.bind(this,)]],
     });
   }
 

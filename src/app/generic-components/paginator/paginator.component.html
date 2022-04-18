@@ -1,5 +1,5 @@
 <div class="bkr-paginator" *ngIf="currentPage != null">
   <button (click)="emit(currentPage - 1)" [disabled]="currentPage <= 0">Prev</button>
-  <span class="paginator-current-page">{{ currentPage + 1 }}</span>
+  <span class="paginator-current-page">{{ currentPage + 1 }} / {{ pages }}</span>
   <button (click)="emit(currentPage + 1)" [disabled]="currentPage >= pages - 1">Next</button>
 </div>
