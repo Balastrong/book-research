@@ -1,6 +1,7 @@
 @use './variables' as vars;
 
-html {
+html,
+body {
   font-family: 'Roboto', Arial, Helvetica, sans-serif;
   color: vars.$primary-text-color;
   background-color: vars.$primary-background-color;
@@ -98,6 +99,10 @@ label {
 
   > .books-container-item {
     flex-basis: 33.33%;
+
+    @media screen and (max-width: vars.$max-width-media) {
+      flex-basis: 100%;
+    }
   }
 }
 

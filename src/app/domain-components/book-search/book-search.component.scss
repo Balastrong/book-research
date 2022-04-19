@@ -1,3 +1,5 @@
+@use '../../../styles/variables' as vars;
+
 .search-form {
   .search-form-controls {
     display: flex;
@@ -11,7 +13,7 @@
       justify-content: flex-end;
       min-width: 200px;
 
-      @media screen and (max-width: 700px) {
+      @media screen and (max-width: vars.$max-width-media) {
         min-width: 100%;
       }
     }
