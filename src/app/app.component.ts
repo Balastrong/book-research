@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { map, Observable } from 'rxjs';
 import { FavouritesService } from './services/favourites.service';
 
 @Component({
@@ -7,5 +8,9 @@ import { FavouritesService } from './services/favourites.service';
   styleUrls: ['./app.component.scss'],
 })
 export class AppComponent {
-  constructor(public favouriteService: FavouritesService) {}
+  favouritesCount$: Observable<number>;
+
+  constructor(public favouriteService: FavouritesService) {
+    this.favouritesCount$ = favouriteService.updates().pipe(map((books) => books?.length ?? 0));
+  }
 }
