@@ -8,7 +8,7 @@
       <bkr-tab label="Research">
         <brk-book-search></brk-book-search>
       </bkr-tab>
-      <bkr-tab label="Favourites ({{ (favouriteService.updates() | async)?.length }})">
+      <bkr-tab label="Favourites ({{ favouritesCount$ | async }})">
         <bkr-book-favourite></bkr-book-favourite>
       </bkr-tab>
     </bkr-tabs>

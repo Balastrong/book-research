@@ -17,6 +17,7 @@ export class BookCardComponent implements OnChanges, OnDestroy {
   reviews?: Review[];
   isReviewDialogVisible: boolean = false;
   isFavourite: boolean = false;
+  showLoadingIndicator: boolean = false;
 
   unsubscribe$: Subject<void> = new Subject();
 
@@ -43,9 +44,13 @@ export class BookCardComponent implements OnChanges, OnDestroy {
   loadReviews() {
     if (this.book) {
       if (this.reviews === undefined) {
-        this.booksService.getReviews({ title: this.book.title, author: this.book.author }).subscribe((response) => {
-          this.reviews = response.results;
-          this.toggleReviewDialog(true);
+        this.showLoadingIndicator = true;
+        this.booksService.getReviews({ title: this.book.title, author: this.book.author }).subscribe({
+          next: (response) => {
+            this.reviews = response.results ?? [];
+            this.toggleReviewDialog(true);
+          },
+          complete: () => (this.showLoadingIndicator = false),
         });
       } else {
         this.toggleReviewDialog(true);
