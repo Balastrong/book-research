@@ -12,7 +12,7 @@
       <tbody>
         <tr *ngFor="let review of reviews" class="">
           <td>{{ review.byline }}</td>
-          <td>{{ review.publicationDt }}</td>
+          <td style="white-space: nowrap">{{ review.publicationDt }}</td>
           <td>
             <i> <a [href]="review.url" target="_blank">Read...</a> </i>
           </td>
