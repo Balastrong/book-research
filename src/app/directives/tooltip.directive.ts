@@ -38,6 +38,8 @@ export class TooltipDirective implements OnDestroy {
   }
 
   private createTooltipPopup(x: number, y: number) {
+    if (!this.tooltip) return;
+
     let popup = document.createElement('div');
     popup.innerHTML = this.tooltip;
     popup.setAttribute('class', 'tooltip-container');

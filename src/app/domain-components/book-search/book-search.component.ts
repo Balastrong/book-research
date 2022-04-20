@@ -56,6 +56,21 @@ export class BookSearchComponent implements OnInit {
     }
   }
 
+  getFormErrorsText(): string {
+    const errors: string[] = [];
+
+    if (!!this.form.errors?.['emptyForm']) {
+      errors.push('Insert at least one search value');
+    }
+
+    const invalidISBNLength = this.form?.controls?.isbn?.errors?.['invalidISBNLength'];
+    if (!!invalidISBNLength) {
+      errors.push(`ISBN must have length 10 or 13, but the input is ${invalidISBNLength.value} chars long`);
+    }
+
+    return errors.join(', ');
+  }
+
   private nonEmptyForm(): any {
     return (formGroup: IFormGroup<BookRequestModel>) => {
       return formGroup.value?.author || formGroup.value?.isbn || formGroup.value?.title

@@ -13,7 +13,7 @@
     <div class="book-card-buttons">
       <button class="book-card-reviews-button" (click)="loadReviews()" [disabled]="showLoadingIndicator">
         <ng-container *ngIf="!showLoadingIndicator; else loadingDiv">
-          Load reviews<span *ngIf="reviews"> ({{ reviews.length }})</span>
+          {{ reviews ? 'Show reviews (' + reviews.length + ')' : 'Load reviews' }}
         </ng-container>
         <ng-template #loadingDiv> Loading... </ng-template>
       </button>

@@ -17,7 +17,11 @@
       />
     </div>
     <div class="form-field">
-      <button (click)="search()" [disabled]="form.invalid || form.pending || isLoading">Search</button>
+      <div class="full-width" bkrTooltip [tooltip]="getFormErrorsText()">
+        <button class="full-width" (click)="search()" [disabled]="form.invalid || form.pending || isLoading">
+          Search
+        </button>
+      </div>
     </div>
   </div>
 </form>
